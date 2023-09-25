@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace MyPhotoshop
 {
@@ -7,15 +8,27 @@ namespace MyPhotoshop
         private double r;
         private double g;
         private double b;
+
+        public static double Trim(double val)
+        {
+            if (val < 0) return 0;
+            if (val > 1) return 1;
+            return val;
+        }
+
+        public double Check(double val)
+        {
+            if (val < 0 || val > 1) 
+                throw new ArgumentException();
+            return val;
+        }
+
         public double R
         {
             get => r;
             set
             {
-                if (value <= 1)
-                    r = value;
-                else
-                    throw new Exception(string.Format("Wrong channel value {0} (the value must be between 0 and 1", value));
+                r = Check(value);
             }
         }
         public double G
@@ -23,10 +36,7 @@ namespace MyPhotoshop
             get => g;
             set
             {
-                if (value <= 1)
-                    g = value;
-                else
-                    throw new Exception(string.Format("Wrong channel value {0} (the value must be between 0 and 1", value));
+               g = Check(value);
             }
         }
         public double B
@@ -34,10 +44,7 @@ namespace MyPhotoshop
             get => b;
             set
             {
-                if (value <= 1)
-                    b = value;
-                else
-                    throw new Exception(string.Format("Wrong channel value {0} (the value must be between 0 and 1", value));
+                b = Check(value);
             }
         }
     }
