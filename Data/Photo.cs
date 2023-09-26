@@ -4,7 +4,12 @@ namespace MyPhotoshop
     {
         public readonly int width;
         public readonly int height;
-        public readonly Pixel[,] data;
+        private readonly Pixel[,] data;
+
+        public Pixel this[int x, int y]
+        {
+            get => data[x, y];
+        }
 
         public Photo(int width, int height)
         {
