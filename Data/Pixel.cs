@@ -6,8 +6,34 @@ namespace MyPhotoshop
     public struct Pixel
     {
         private double r;
+        public double R
+        {
+            get => r;
+            set
+            {
+                r = Check(value);
+            }
+        }
+
         private double g;
+        public double G
+        {
+            get => g;
+            set
+            {
+                g = Check(value);
+            }
+        }
+
         private double b;
+        public double B
+        {
+            get => b;
+            set
+            {
+                b = Check(value);
+            }
+        }
 
         public static double Trim(double val)
         {
@@ -25,41 +51,14 @@ namespace MyPhotoshop
 
         public static Pixel operator *(Pixel pixel, double value)
         {
-            var result = new Pixel()
+            return new Pixel()
             {
                 r = Trim(pixel.r * value),
                 g = Trim(pixel.g * value),
                 b = Trim(pixel.b * value)
             };
-            
-            return result;
         }
 
-        public double R
-        {
-            get => r;
-            set
-            {
-                r = Check(value);
-            }
-        }
-
-        public double G
-        {
-            get => g;
-            set
-            {
-               g = Check(value);
-            }
-        }
-
-        public double B
-        {
-            get => b;
-            set
-            {
-                b = Check(value);
-            }
-        }
+        public static Pixel operator *(double value, Pixel pixel) => pixel * value;
     }
 }
