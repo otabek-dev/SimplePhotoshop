@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace MyPhotoshop
 {
-    public class Pixel
+    public struct Pixel
     {
         private double r;
         private double g;
@@ -31,6 +31,7 @@ namespace MyPhotoshop
                 r = Check(value);
             }
         }
+
         public double G
         {
             get => g;
@@ -39,6 +40,7 @@ namespace MyPhotoshop
                g = Check(value);
             }
         }
+
         public double B
         {
             get => b;

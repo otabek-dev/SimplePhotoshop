@@ -23,7 +23,7 @@ namespace MyPhotoshop
         static int ToChannel(double val)
         {
             if (val < 0 || val > 1)
-                throw new Exception(string.Format("Wrong channel value {0} (the value must be between 0 and 1", val));
+                throw new Exception($"Wrong channel value {val} (the value must be between 0 and 1");
             return (int)(val * 255);
         }
 
