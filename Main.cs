@@ -3,14 +3,14 @@ using System.Windows.Forms;
 
 namespace MyPhotoshop
 {
-	class MainClass
-	{
+    class MainClass
+    {
         [STAThread]
-		public static void Main (string[] args)
-		{
-			var window=new MainWindow();
-			window.AddFilter(new LighteningFilter());
-			Application.Run(window);
-		}
-	}
+        public static void Main(string[] args)
+        {
+            var window = new MainWindow();
+            window.AddFilter(new LighteningFilter());
+            Application.Run(window);
+        }
+    }
 }
