@@ -23,6 +23,18 @@ namespace MyPhotoshop
             return val;
         }
 
+        public static Pixel operator *(Pixel pixel, double value)
+        {
+            var result = new Pixel()
+            {
+                r = Trim(pixel.r * value),
+                g = Trim(pixel.g * value),
+                b = Trim(pixel.b * value)
+            };
+            
+            return result;
+        }
+
         public double R
         {
             get => r;
