@@ -25,15 +25,15 @@ namespace MyPhotoshop
 
         public static Pixel operator *(Pixel pixel, double value)
         {
-            var result = new Pixel()
+            return new Pixel()
             {
                 r = Trim(pixel.r * value),
                 g = Trim(pixel.g * value),
                 b = Trim(pixel.b * value)
             };
-            
-            return result;
         }
+
+        public static Pixel operator *(double value, Pixel pixel) => pixel * value;
 
         public double R
         {
